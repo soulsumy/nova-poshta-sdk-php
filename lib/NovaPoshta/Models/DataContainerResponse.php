@@ -14,11 +14,11 @@ class DataContainerResponse extends BaseModel
 {
     public $id;
     public $success;
-    public $data = array();
-    public $errors = array();
-    public $errorCodes = array();
-    public $warnings = array();
-    public $info = array();
+    public $data = [];
+    public $errors = [];
+    public $errorCodes = [];
+    public $warnings = [];
+    public $info = [];
 
     public function __construct(\stdClass $data = null)
     {

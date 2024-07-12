@@ -18,6 +18,12 @@ use NovaPoshta\Core\BaseModel;
  */
 class OptionsSeat extends BaseModel
 {
+    public float $volumetricVolume;
+    public float $volumetricWidth;
+    public float $volumetricLength;
+    public float $volumetricHeight;
+    public float $weight;
+
     /**
      * Устанавливает объем
      *

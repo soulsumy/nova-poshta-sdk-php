@@ -11,6 +11,8 @@ namespace NovaPoshta\MethodParameters;
  */
 class ScanSheet_getScanSheet extends MethodParameters
 {
+    public string $Ref;
+
     /**
      * Устанавливает реф
      *

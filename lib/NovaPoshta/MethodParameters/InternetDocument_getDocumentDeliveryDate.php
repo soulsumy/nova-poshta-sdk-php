@@ -14,6 +14,11 @@ namespace NovaPoshta\MethodParameters;
  */
 class InternetDocument_getDocumentDeliveryDate extends MethodParameters
 {
+    public string $DateTime;
+    public string $CitySender;
+    public string $CityRecipient;
+    public string $ServiceType;
+
     /**
      * Устанавливает дату
      *

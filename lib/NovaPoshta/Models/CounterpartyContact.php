@@ -17,6 +17,12 @@ use NovaPoshta\Core\BaseModel;
  */
 class CounterpartyContact extends BaseModel
 {
+    public string $Ref;
+    public string $City;
+    public string $Address;
+    public string $Contact;
+    public string $Phone;
+
     /**
      * Устанавливает реф
      *

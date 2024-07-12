@@ -20,17 +20,17 @@ class DataSerializerXML implements SerializerInterface
         return $xml->outputMemory();
     }
 
-    public function unserializeData($xml)
+    public function unserializeData($data)
     {
-        if (empty($xml)) {
+        if (empty($data)) {
             return false;
         }
         libxml_use_internal_errors(true);
-        $xml = simplexml_load_string($xml);
+        $xml = simplexml_load_string($data);
         if (!$xml) {
             $dataContainerResponse = new DataContainerResponse();
             $dataContainerResponse->success = false;
-            $dataContainerResponse->errors[] = array('DataSerializerXML.DATA_IS_INVALID');
+            $dataContainerResponse->errors[] = ['DataSerializerXML.DATA_IS_INVALID'];
 
             return $dataContainerResponse;
         }
@@ -61,7 +61,7 @@ class DataSerializerXML implements SerializerInterface
     private function arrayToObject($d)
     {
         if (is_array($d)) {
-            return (object)array_map(array(__CLASS__, __METHOD__), $d);
+            return (object)array_map([self::class, __METHOD__], $d);
         } else {
             return $d;
         }
@@ -77,7 +77,7 @@ class DataSerializerXML implements SerializerInterface
             if ($key == 'item') {
                 $parent = (array)$value;
                 if (empty($parent[0])) {
-                    $parent = array($value);
+                    $parent = [$value];
                 }
 
                 foreach ($parent as $k => &$v) {

@@ -11,6 +11,8 @@ namespace NovaPoshta\MethodParameters;
  */
 class Counterparty_getCounterpartyOptions extends MethodParameters
 {
+    public string $Ref;
+
     /**
      * Устанавливает реф
      *

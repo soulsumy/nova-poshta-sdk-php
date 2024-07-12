@@ -16,6 +16,13 @@ namespace NovaPoshta\MethodParameters;
  */
 class InternetDocument_getDocumentPrice extends MethodParameters
 {
+    public string $CitySender;
+    public string $CityRecipient;
+    public string $ServiceType;
+    public float  $Weight;
+    public float  $Cost;
+    public string $DateTime;
+
     /**
      * Устанавливает реф города отправителя
      *

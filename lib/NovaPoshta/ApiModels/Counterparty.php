@@ -18,7 +18,7 @@ use NovaPoshta\MethodParameters\MethodParameters;
  * @property string CounterpartyType
  * @property string FirstName
  * @property string LastName
- * @property string MiddleName
+ * @property ?string MiddleName
  * @property string Phone
  * @property string Email
  * @property string OwnershipForm
@@ -26,18 +26,30 @@ use NovaPoshta\MethodParameters\MethodParameters;
  */
 class Counterparty extends ApiModel
 {
+    public string $Ref;
+    public string $CounterpartyProperty;
+    public string $CityRef;
+    public string $CounterpartyType;
+    public string $FirstName;
+    public string $LastName;
+    public ?string $MiddleName;
+    public string $Phone;
+    public string $Email;
+    public string $OwnershipForm;
+    public string $EDRPOU;
+
     /**
      * Отправитель
      */
-    const SENDER = 'Sender';
+    public const SENDER = 'Sender';
     /**
      * Получатель
      */
-    const RECIPIENT = 'Recipient';
+    public const RECIPIENT = 'Recipient';
     /**
      * Третье лицо
      */
-    const THIRD_PERSON = 'ThirdPerson';
+    public const THIRD_PERSON = 'ThirdPerson';
 
     /**
      * Вызвать метод save() - сохранить контрагента

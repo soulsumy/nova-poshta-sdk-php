@@ -12,6 +12,9 @@ namespace NovaPoshta\MethodParameters;
  */
 class Common_getCargoDescriptionList extends MethodParameters
 {
+    public string $Page;
+    public string $FindByString;
+
     /**
      * Устанавливает страницу
      *

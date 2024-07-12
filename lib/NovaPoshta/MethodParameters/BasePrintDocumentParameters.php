@@ -11,6 +11,10 @@ namespace NovaPoshta\MethodParameters;
  */
 abstract class BasePrintDocumentParameters extends MethodParameters
 {
+    public array $DocumentRefs;
+    public string $Type;
+    public string $Copies;
+
     /**
      * Устанавливает рефы документов
      *
@@ -26,7 +30,7 @@ abstract class BasePrintDocumentParameters extends MethodParameters
     /**
      * Возвращает рефы документов
      *
-     * @return string
+     * @return array
      */
     public function getDocumentRefs()
     {
@@ -40,7 +44,7 @@ abstract class BasePrintDocumentParameters extends MethodParameters
      */
     public function clearDocumentRefs()
     {
-        $this->DocumentRefs = array();
+        $this->DocumentRefs = [];
         return $this;
     }
 
@@ -53,7 +57,7 @@ abstract class BasePrintDocumentParameters extends MethodParameters
     public function addDocumentRef($value)
     {
         if (!isset($this->DocumentRefs)) {
-            $this->DocumentRefs = array();
+            $this->DocumentRefs = [];
         }
         $this->DocumentRefs[] = $value;
         return $this;

@@ -13,6 +13,10 @@ namespace NovaPoshta\MethodParameters;
  */
 class Address_getCities extends MethodParameters
 {
+    public string $Ref;
+    public string $FindByString;
+    public string $Page;
+
     /**
      * Устанавливает реф
      *

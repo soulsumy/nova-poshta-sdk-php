@@ -11,6 +11,8 @@ namespace NovaPoshta\MethodParameters;
  */
 class InternetDocument_documentsTracking extends MethodParameters
 {
+    public array $Documents;
+
     /**
      * Устанавливает номера документов
      *
@@ -28,7 +30,7 @@ class InternetDocument_documentsTracking extends MethodParameters
     /**
      * Устанавливает номер документа
      *
-     * @return string
+     * @return array
      */
     public function getDocuments()
     {
@@ -45,7 +47,7 @@ class InternetDocument_documentsTracking extends MethodParameters
     public function addDocument($value)
     {
         if (!$this->Documents) {
-            $this->Documents = array();
+            $this->Documents = [];
         }
         $this->Documents[] = $value;
 
@@ -59,7 +61,7 @@ class InternetDocument_documentsTracking extends MethodParameters
      */
     public function clearDocuments()
     {
-        $this->DocumentRefumentRefs = array();
+        $this->DocumentRefumentRefs = [];
 
         return $this;
     }

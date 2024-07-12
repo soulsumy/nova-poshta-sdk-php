@@ -87,7 +87,7 @@ abstract class ApiModel extends BaseModel
 
     private static function _getCalledModel()
     {
-        $thisNameClass = explode('\\', get_called_class());
+        $thisNameClass = explode('\\', static::class);
 
         return end($thisNameClass);
     }

@@ -12,6 +12,9 @@ namespace NovaPoshta\MethodParameters;
  */
 class Counterparty_getCounterpartyAddresses extends MethodParameters
 {
+    public string $Ref;
+    public string $Page;
+
     /**
      * Устанавливет реф
      *

@@ -14,28 +14,28 @@ class Config
     /**
      * Формат данных в формате JSON
      */
-    const FORMAT_JSON = 'json';
+    public const FORMAT_JSON = 'json';
     /**
      * Формат данных в формате JSONRPC2
      */
-    const FORMAT_JSONRPC2 = 'jsonrpc2';
+    public const FORMAT_JSONRPC2 = 'jsonrpc2';
     /**
      * Формат данных в формате XML
      */
-    const FORMAT_XML = 'xml';
+    public const FORMAT_XML = 'xml';
 
     /**
      * Возврат данных на украинском языке
      */
-    const LANGUAGE_UA = 'ua';
+    public const LANGUAGE_UA = 'ua';
     /**
      *  Возврат данных на русском языке, если это предусмотрено API Новой почты
      */
-    const LANGUAGE_RU = 'ru';
+    public const LANGUAGE_RU = 'ru';
     /**
      * Возврат данных на английский языке, если это предусмотрено API Новой почты
      */
-    const LANGUAGE_EN = 'en';
+    public const LANGUAGE_EN = 'en';
 
     /**
      * @var string API ключ

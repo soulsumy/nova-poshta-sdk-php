@@ -14,7 +14,7 @@ use NovaPoshta\Core\ApiModel;
  * @property string CounterpartyRef
  * @property string FirstName
  * @property string LastName
- * @property string MiddleName
+ * @property ?string MiddleName
  * @property string Email
  * 
  * Class ContactPerson
@@ -22,6 +22,14 @@ use NovaPoshta\Core\ApiModel;
  */
 class ContactPerson extends ApiModel
 {
+    public string $Ref;
+    public string $CounterpartyRef;
+    public string $FirstName;
+    public string $LastName;
+    public ?string $MiddleName;
+    public string $Email;
+    public string $Phone;
+
     /**
      * Вызвать метод save() - сохранить данные контактного лица отправителя/получателя
      *

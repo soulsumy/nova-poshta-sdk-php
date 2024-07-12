@@ -11,6 +11,8 @@ namespace NovaPoshta\MethodParameters;
  */
 class ScanSheet_printScanSheet extends BasePrintDocumentParameters
 {
+    public string $Ref;
+
     /**
      * Добавляет номер реестра
      *
@@ -36,7 +38,7 @@ class ScanSheet_printScanSheet extends BasePrintDocumentParameters
     /**
      * Возвращает номера реестров
      *
-     * @return string
+     * @return array
      */
     public function getNumbers()
     {

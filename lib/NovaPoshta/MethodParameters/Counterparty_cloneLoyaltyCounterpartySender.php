@@ -11,6 +11,8 @@ namespace NovaPoshta\MethodParameters;
  */
 class Counterparty_cloneLoyaltyCounterpartySender extends MethodParameters
 {
+    public string $CityRef;
+
     /**
      * Устанавливает реф города
      *

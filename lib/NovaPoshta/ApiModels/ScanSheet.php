@@ -12,7 +12,7 @@ use stdClass;
  * ScanSheet - Модель для работы с реестрами приема-передачи отправлений
  *
  * @property array DocumentRefs
- * @property string Ref
+ * @property ?string Ref
  * @property string Date
  *
  * Class ScanSheet
@@ -20,14 +20,18 @@ use stdClass;
  */
 class ScanSheet extends ApiModel
 {
+    public array $DocumentRefs;
+    public ?string $Ref;
+    public string $Date;
+
     /**
      * Печать в формате PDF
      */
-    const PRINT_TYPE_PDF = 'pdf';
+    public const PRINT_TYPE_PDF = 'pdf';
     /**
      * Печать в формате HTML
      */
-    const PRINT_TYPE_HTML = 'html';
+    public const PRINT_TYPE_HTML = 'html';
 
     /**
      * Сохранить экспресс-накладные в реестр
@@ -66,7 +70,7 @@ class ScanSheet extends ApiModel
     public function delete()
     {
         $data = new stdClass();
-        $data->ScanSheetRefs = array($this->Ref);
+        $data->ScanSheetRefs = [$this->Ref];
         return self::sendData('deleteScanSheet', $data);
     }
 
@@ -91,7 +95,7 @@ class ScanSheet extends ApiModel
     public function addDocumentRef($value)
     {
         if (!isset($this->DocumentRefs)) {
-            $this->DocumentRefs = array();
+            $this->DocumentRefs = [];
         }
         $this->DocumentRefs[] = $value;
         return $this;
@@ -104,7 +108,7 @@ class ScanSheet extends ApiModel
      */
     public function clearDocumentRefs()
     {
-        $this->DocumentRefs = array();
+        $this->DocumentRefs = [];
         return $this;
     }
 
@@ -193,7 +197,7 @@ class ScanSheet extends ApiModel
      */
     public static function printScanSheet(MethodParameters $data = null)
     {
-        $refs = isset($data->DocumentRefs) ? $data->DocumentRefs : null;
+        $refs = $data->DocumentRefs ?? null;
 
         if (empty($refs)) {
             return '';

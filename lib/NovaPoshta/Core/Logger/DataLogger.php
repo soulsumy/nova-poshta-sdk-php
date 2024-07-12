@@ -6,8 +6,8 @@ class DataLogger
 {
     public $toData = null;
     public $toOriginalData = null;
-    public $toBatchData = array();
+    public $toBatchData = [];
     public $fromOriginalData = null;
     public $fromData = null;
-    public $fromBatchData = array();
+    public $fromBatchData = [];
 }

@@ -12,6 +12,9 @@ namespace NovaPoshta\MethodParameters;
  */
 class Counterparty_getCounterpartyByEDRPOU extends MethodParameters
 {
+    public string $EDRPOU;
+    public string $CityRef;
+
     /**
      * Устанавливает ОКПО
      *

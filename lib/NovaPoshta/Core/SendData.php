@@ -22,7 +22,7 @@ class SendData
     private $serializer;
     private $logger = null;
 
-    protected $dataBatch = array();
+    protected $dataBatch = [];
 
     protected function __construct()
     {
@@ -88,7 +88,7 @@ class SendData
         } else {
             $response = new DataContainerResponse();
             $response->success = false;
-            $response->errors[] = array('DataSerializerJSON.ERROR_REQUEST');
+            $response->errors[] = ['DataSerializerJSON.ERROR_REQUEST'];
         }
 
         $this->logger->fromData = $response;
@@ -104,7 +104,7 @@ class SendData
     protected function _getResponseBatch()
     {
         if(empty($this->dataBatch)){
-            return array();
+            return [];
         }
 
         $this->logger->toBatchData = $this->dataBatch;
@@ -119,7 +119,7 @@ class SendData
 
         $response = $this->serializer->unserializeBatchData($response);
 
-        $responseDataContainers = array();
+        $responseDataContainers = [];
         foreach($response as $key => $item){
             $responseDataContainers[$item->id] = $item;
         }
@@ -128,7 +128,7 @@ class SendData
 
         $this->setDataLogger();
 
-        $this->dataBatch = array();
+        $this->dataBatch = [];
 
         return $responseDataContainers;
     }
@@ -159,7 +159,7 @@ class SendData
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, Config::getConnectTimeout());
             curl_setopt($ch, CURLOPT_TIMEOUT, Config::getTimeout());
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, Array("Content-Type: text/plain"));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: text/plain"]);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             curl_setopt($ch, CURLOPT_POST, 1);
@@ -170,7 +170,7 @@ class SendData
             curl_close($ch);
 
             return $response;
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             return false;
         }
     }

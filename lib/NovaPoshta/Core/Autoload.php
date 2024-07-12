@@ -10,7 +10,7 @@ class Autoload
             spl_autoload_register('__autoload');
         }
 
-        return spl_autoload_register(array('\NovaPoshta\Core\Autoload', 'load'));
+        return spl_autoload_register([\NovaPoshta\Core\Autoload::class, 'load']);
     }
 
     public static function load($className)

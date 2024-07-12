@@ -12,6 +12,9 @@ namespace NovaPoshta\MethodParameters;
  */
 class Address_getAreas extends MethodParameters
 {
+    public string $Ref;
+    public string $Page;
+
     /**
      * Устанавливает реф
      *

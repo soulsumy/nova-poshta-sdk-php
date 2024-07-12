@@ -9,17 +9,17 @@ class DataSerializerJSONRPC2 implements SerializerInterface, SerializerBatchInte
 {
     public function serializeData(DataContainer $data)
     {
-        $dataJSONRPC2 = $this->dataContainer2dataSerializerJSONRPC2(array($data));
+        $dataJSONRPC2 = $this->dataContainer2dataSerializerJSONRPC2([$data]);
 
         $json = json_encode($dataJSONRPC2[0]);
 
         return $json;
     }
 
-    public function unserializeData($json)
+    public function unserializeData($data)
     {
-        $data = json_decode($json);
-        $dataContainer = $this->dataSerializerJSONRPC2dataContainer(array($data));
+        $data = json_decode($data);
+        $dataContainer = $this->dataSerializerJSONRPC2dataContainer([$data]);
 
         return $dataContainer[0];
     }
@@ -33,9 +33,9 @@ class DataSerializerJSONRPC2 implements SerializerInterface, SerializerBatchInte
         return $json;
     }
 
-    public function unserializeBatchData($json)
+    public function unserializeBatchData($data)
     {
-        $data = (array)json_decode($json);
+        $data = (array)json_decode($data);
         $dataContainer = $this->dataSerializerJSONRPC2dataContainer($data);
 
         return $dataContainer;
@@ -43,7 +43,7 @@ class DataSerializerJSONRPC2 implements SerializerInterface, SerializerBatchInte
 
     private function dataContainer2dataSerializerJSONRPC2(array $dataItems)
     {
-        $data = array();
+        $data = [];
 
         foreach($dataItems as $item){
             $dataJSONRPC2 = new \stdClass();
@@ -62,12 +62,12 @@ class DataSerializerJSONRPC2 implements SerializerInterface, SerializerBatchInte
 
     private function dataSerializerJSONRPC2dataContainer($dataItems)
     {
-        $dataContainers = array();
+        $dataContainers = [];
         foreach($dataItems as $data){
             if (json_last_error() != JSON_ERROR_NONE) {
                 $dataContainerResponse = new DataContainerResponse();
                 $dataContainerResponse->success = false;
-                $dataContainerResponse->errors[] = array('DataSerializerJSONRPC2.DATA_IS_INVALID');
+                $dataContainerResponse->errors[] = ['DataSerializerJSONRPC2.DATA_IS_INVALID'];
 
                 return $dataContainerResponse;
             }

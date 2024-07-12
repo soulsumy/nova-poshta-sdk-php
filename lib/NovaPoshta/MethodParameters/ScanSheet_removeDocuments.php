@@ -11,6 +11,8 @@ namespace NovaPoshta\MethodParameters;
  */
 class ScanSheet_removeDocuments extends MethodParameters
 {
+    public array $DocumentRefs;
+
     /**
      * Устанавливает рефы реестров
      *
@@ -26,7 +28,7 @@ class ScanSheet_removeDocuments extends MethodParameters
     /**
      * Получить рефы реестров
      *
-     * @return string
+     * @return array
      */
     public function getDocumentRefs()
     {
@@ -42,7 +44,7 @@ class ScanSheet_removeDocuments extends MethodParameters
     public function addDocumentRef($value)
     {
         if (!$this->DocumentRefs) {
-            $this->DocumentRefs = array();
+            $this->DocumentRefs = [];
         }
         $this->DocumentRefs[] = $value;
         return $this;
@@ -55,7 +57,7 @@ class ScanSheet_removeDocuments extends MethodParameters
      */
     public function clearDocumentRefs()
     {
-        $this->DocumentRefs = array();
+        $this->DocumentRefs = [];
         return $this;
     }
 }

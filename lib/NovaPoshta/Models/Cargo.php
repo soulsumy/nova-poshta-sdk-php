@@ -14,6 +14,9 @@ use NovaPoshta\Core\BaseModel;
  */
 class Cargo extends BaseModel
 {
+    public string $CargoDescription;
+    public int $Amount;
+
     /**
      * Устанавливает реф груза
      *

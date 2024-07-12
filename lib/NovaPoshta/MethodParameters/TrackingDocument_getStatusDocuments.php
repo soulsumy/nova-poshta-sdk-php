@@ -18,6 +18,7 @@ namespace NovaPoshta\MethodParameters;
  */
 class TrackingDocument_getStatusDocuments extends MethodParameters
 {
+    public array $Documents;
 
     /**
      * Устанавливает номера документов
@@ -37,7 +38,7 @@ class TrackingDocument_getStatusDocuments extends MethodParameters
     /**
      * Устанавливает номер документа
      *
-     * @return string
+     * @return array
      */
     public function getDocuments()
     {
@@ -68,7 +69,7 @@ class TrackingDocument_getStatusDocuments extends MethodParameters
      */
     public function clearDocuments()
     {
-        $this->DocumentRefumentRefs = array();
+        $this->DocumentRefumentRefs = [];
 
         return $this;
     }

@@ -16,7 +16,7 @@ use stdClass;
  *
  * @property CounterpartyContact Sender
  * @property CounterpartyContact Recipient
- * @property string              ThirdPerson
+ * @property CounterpartyContact ThirdPerson
  * @property string              NewAddress
  * @property string              Ref
  * @property string              DateTime
@@ -61,23 +61,66 @@ use stdClass;
  */
 class InternetDocument extends ApiModel
 {
+    public CounterpartyContact $Sender;
+    public CounterpartyContact $Recipient;
+    public CounterpartyContact $ThirdPerson;
+    public int $NewAddress;
+    public string $Ref;
+    public string $DateTime;
+    public string $ServiceType;
+    public string $PaymentMethod;
+    public string $PayerType;
+    public float $Cost;
+    public int $SeatsAmount;
+    public float $AfterpaymentOnGoodsCost;
+    public string $Description;
+    public string $CargoType;
+    public float $Weight;
+    public float $VolumeWeight;
+    public float $VolumeGeneral;
+    public string $Pack;
+    public string $AdditionalInformation;
+    public string $PackingNumber;
+    public string $InfoRegClientBarcodes;
+    public bool $SaturdayDelivery;
+    public string $SameDayDelivery;
+    public string $ForwardingCount;
+    public bool $IsTakeAttorney;
+    public string $PreferredDeliveryDate;
+    public string $TimeInterval;
+    public string $NumberOfFloorsLifting;
+    public string $AccompanyingDocuments;
+    public array $CargoDetails;
+    public array $OptionsSeat;
+    public array $BackwardDeliveryData;
+    public string $RecipientCityName;
+    public string $RecipientArea;
+    public string $RecipientRegion;
+    public string $RecipientAddressName;
+    public string $RecipientHouse;
+    public string $RecipientFlat;
+    public string $RecipientName;
+    public string $RecipientType;
+    public string $RecipientsPhone;
+    public array $DocumentRefs;
+
     /**
      * Печать в формате PDF
      */
-    const PRINT_TYPE_PDF = 'Pdf';
+    public const PRINT_TYPE_PDF = 'Pdf';
     /**
      * Печать в формате HTML
      */
-    const PRINT_TYPE_HTML = 'Html';
+    public const PRINT_TYPE_HTML = 'Html';
 
     /**
      * Печатать 2 экземпляра
      */
-    const PRINT_COPIES_DOUBLE = 'double';
+    public const PRINT_COPIES_DOUBLE = 'double';
     /**
      * Печатать 4 экземпляра
      */
-    const PRINT_COPIES_FOURFOLD = 'fourfold';
+    public const PRINT_COPIES_FOURFOLD = 'fourfold';
 
     private function getDataInternetDocument()
     {
@@ -679,7 +722,7 @@ class InternetDocument extends ApiModel
     public function addCargoDetail(Cargo $value)
     {
         if (!isset($this->CargoDetails)) {
-            $this->CargoDetails = array();
+            $this->CargoDetails = [];
         }
         $this->CargoDetails[] = $value;
         return $this;
@@ -693,7 +736,7 @@ class InternetDocument extends ApiModel
     public function getCargoDetails()
     {
         if (!isset($this->CargoDetails)) {
-            $this->CargoDetails = array();
+            $this->CargoDetails = [];
         }
         return $this->CargoDetails;
     }
@@ -705,7 +748,7 @@ class InternetDocument extends ApiModel
      */
     public function clearCargoDetails()
     {
-        $this->CargoDetails = array();
+        $this->CargoDetails = [];
         return $this;
     }
 
@@ -718,7 +761,7 @@ class InternetDocument extends ApiModel
     public function addOptionsSeat(OptionsSeat $value)
     {
         if (!isset($this->OptionsSeat)) {
-            $this->OptionsSeat = array();
+            $this->OptionsSeat = [];
         }
         $this->OptionsSeat[] = $value;
         return $this;
@@ -732,7 +775,7 @@ class InternetDocument extends ApiModel
     public function getOptionsSeats()
     {
         if (!isset($this->OptionsSeat)) {
-            $this->OptionsSeat = array();
+            $this->OptionsSeat = [];
         }
         return $this->OptionsSeat;
     }
@@ -744,7 +787,7 @@ class InternetDocument extends ApiModel
      */
     public function clearOptionsSeat()
     {
-        $this->OptionsSeat = array();
+        $this->OptionsSeat = [];
         return $this;
     }
 
@@ -757,7 +800,7 @@ class InternetDocument extends ApiModel
     public function addBackwardDeliveryData(BackwardDeliveryData $value)
     {
         if (!isset($this->BackwardDeliveryData)) {
-            $this->BackwardDeliveryData = array();
+            $this->BackwardDeliveryData = [];
         }
         $this->BackwardDeliveryData[] = $value;
         return $this;
@@ -771,7 +814,7 @@ class InternetDocument extends ApiModel
     public function getBackwardDeliveryData()
     {
         if (!isset($this->BackwardDeliveryData)) {
-            $this->BackwardDeliveryData = array();
+            $this->BackwardDeliveryData = [];
         }
         return $this->BackwardDeliveryData;
     }
@@ -783,7 +826,7 @@ class InternetDocument extends ApiModel
      */
     public function clearBackwardDeliveryData()
     {
-        $this->BackwardDeliveryData = array();
+        $this->BackwardDeliveryData = [];
         return $this;
     }
 
@@ -858,7 +901,7 @@ class InternetDocument extends ApiModel
      */
     public function delete()
     {
-        $this->DocumentRefs = array($this->Ref);
+        $this->DocumentRefs = [$this->Ref];
         return $this->sendData(__FUNCTION__, $this->getThisData());
     }
 
@@ -1143,7 +1186,7 @@ class InternetDocument extends ApiModel
 
     private static function getPrintLink($typePrint, MethodParameters $data = null)
     {
-        $refs = isset($data->DocumentRefs) ? $data->DocumentRefs : null;
+        $refs = $data->DocumentRefs ?? null;
 
         if (empty($refs)) {
             return '';

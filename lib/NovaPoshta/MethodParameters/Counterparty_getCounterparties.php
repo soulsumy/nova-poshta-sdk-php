@@ -15,6 +15,12 @@ namespace NovaPoshta\MethodParameters;
  */
 class Counterparty_getCounterparties extends MethodParameters
 {
+    public string $Ref;
+    public string $CounterpartyProperty;
+    public string $Page;
+    public string $FindByString;
+    public string $CityRef;
+
     /**
      * Идентификатор контрагента
      *

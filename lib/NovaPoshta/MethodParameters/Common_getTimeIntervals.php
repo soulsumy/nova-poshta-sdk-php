@@ -12,6 +12,9 @@ namespace NovaPoshta\MethodParameters;
  */
 class Common_getTimeIntervals extends MethodParameters
 {
+    public string $RecipientCityRef;
+    public string $DateTime;
+
     /**
      * Устанавливает получателя реф города
      *

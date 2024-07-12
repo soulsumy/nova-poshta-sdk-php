@@ -16,6 +16,11 @@ use NovaPoshta\Core\BaseModel;
  */
 class BackwardDeliveryData extends BaseModel
 {
+    public string $PayerType;
+    public string $CargoType;
+    public string $RedeliveryString;
+    public array  $Trays;
+
     /**
      * Устанавливает тип плательщика
      *
@@ -91,7 +96,7 @@ class BackwardDeliveryData extends BaseModel
     public function addTray(Cargo $cargo)
     {
         if(empty($this->Trays)){
-            $this->Trays = array();
+            $this->Trays = [];
         }
         $this->Trays[] = $cargo;
         return $this;
@@ -124,7 +129,7 @@ class BackwardDeliveryData extends BaseModel
      */
     public function clearTrays()
     {
-        $this->Trays = array();
+        $this->Trays = [];
         return $this;
     }
 }

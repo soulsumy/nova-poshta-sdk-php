@@ -21,6 +21,14 @@ use NovaPoshta\MethodParameters\MethodParameters;
  */
 class Address extends ApiModel
 {
+    public string $Ref;
+    public string $CounterpartyRef;
+    public string $StreetRef;
+    public string $BuildingRef;
+    public string $BuildingNumber;
+    public string $Flat;
+    public string $Note;
+
     /**
      * Вызвать метод save() - создать адрес отправителя/получателя
      *

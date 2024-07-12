@@ -65,7 +65,7 @@ class Common extends ApiModel
     }
 
     /**
-     * Вызвать метод getPalletsList() - загрузить список поддонов (при заказе услуги обратная доставка  поддонов)
+     * Вызвать метод getPalletsList() - загрузить список поддонов (при заказе услуги обратная доставка поддонов)
      *
      * @return \NovaPoshta\Models\DataContainerResponse
      */

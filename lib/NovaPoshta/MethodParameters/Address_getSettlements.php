@@ -14,6 +14,10 @@ namespace NovaPoshta\MethodParameters;
 
 class Address_getSettlements extends MethodParameters
 {
+    public string $Ref;
+    public string $FindByString;
+    public string $Page;
+
     /**
      * Устанавливает реф
      *

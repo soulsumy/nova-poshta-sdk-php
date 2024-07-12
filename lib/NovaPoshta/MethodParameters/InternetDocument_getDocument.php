@@ -11,6 +11,8 @@ namespace NovaPoshta\MethodParameters;
  */
 class InternetDocument_getDocument extends MethodParameters
 {
+    public string $Ref;
+
     /**
      * Устанавливает реф документа
      *

@@ -34,59 +34,84 @@ namespace NovaPoshta\MethodParameters;
  */
 class InternetDocument_getDocumentList extends MethodParameters
 {
+    public string $IntDocNumber;
+    public string $InfoRegClientBarcodes;
+    public string $DeliveryDateTime;
+    public string $RecipientDateTime;
+    public string $CreateTime;
+    public string $SenderRef;
+    public string $RecipientRef;
+    public float $WeightFrom;
+    public float $WeightTo;
+    public float $CostFrom;
+    public float $CostTo;
+    public int $SeatsAmountFrom;
+    public int $SeatsAmountTo;
+    public float $CostOnSiteFrom;
+    public float $CostOnSiteTo;
+    public array $StateIds;
+    public string $DateTime;
+    public string $DateTimeFrom;
+    public string $DateTimeTo;
+    public bool $isAfterpayment;
+    public int $Page;
+    public string $OrderField;
+    public string $OrderDirection;
+    public string $ScanSheetRef;
+
     /**
      * Сортировка по убыванию
      */
-    const ORDER_DIRECTION_DESC = 'DESC';
+    public const ORDER_DIRECTION_DESC = 'DESC';
     /**
      * Сортировка по возрастанию
      */
-    const ORDER_DIRECTION_ASC = 'ASC';
+    public const ORDER_DIRECTION_ASC = 'ASC';
 
     /**
      * Сортировка по полю номер документа
      */
-    const ORDER_FIELD_IntDocNumber = 'IntDocNumber';
+    public const ORDER_FIELD_IntDocNumber = 'IntDocNumber';
     /**
      * Сортировка по полю дата отправки
      */
-    const ORDER_FIELD_DateTime = 'DateTime';
+    public const ORDER_FIELD_DateTime = 'DateTime';
     /**
      * Сортировка по полю вес
      */
-    const ORDER_FIELD_Weight = 'Weight';
+    public const ORDER_FIELD_Weight = 'Weight';
     /**
      * Сортировка по полю стоимость товара
      */
-    const ORDER_FIELD_Cost = 'Cost';
+    public const ORDER_FIELD_Cost = 'Cost';
     /**
      * Сортировка по полю количество мест
      */
-    const ORDER_FIELD_SeatsAmount = 'SeatsAmount';
+    public const ORDER_FIELD_SeatsAmount = 'SeatsAmount';
     /**
      * Сортировка по полю цена доставки
      */
-    const ORDER_FIELD_CostOnSite = 'CostOnSite';
+    public const ORDER_FIELD_CostOnSite = 'CostOnSite';
     /**
      * Сортировка по полю дата создания
      */
-    const ORDER_FIELD_CreateTime = 'CreateTime';
+    public const ORDER_FIELD_CreateTime = 'CreateTime';
     /**
      * Сортировка по полю дата доставки
      */
-    const ORDER_FIELD_EstimatedDeliveryDate = 'EstimatedDeliveryDate';
+    public const ORDER_FIELD_EstimatedDeliveryDate = 'EstimatedDeliveryDate';
     /**
      * Сортировка по полю статус доставки
      */
-    const ORDER_FIELD_StateId = 'StateId';
+    public const ORDER_FIELD_StateId = 'StateId';
     /**
      * Сортировка по полю внутренний номер клиента
      */
-    const ORDER_FIELD_InfoRegClientBarcodes = 'InfoRegClientBarcodes';
+    public const ORDER_FIELD_InfoRegClientBarcodes = 'InfoRegClientBarcodes';
     /**
      * Сортировка по полю дата фактическая дата доставки
      */
-    const ORDER_FIELD_RecipientDateTime = 'RecipientDateTime';
+    public const ORDER_FIELD_RecipientDateTime = 'RecipientDateTime';
 
     /**
      * Устанавливает номер документа
@@ -433,7 +458,7 @@ class InternetDocument_getDocumentList extends MethodParameters
     /**
      * Получить статусы
      *
-     * @return string
+     * @return array
      */
     public function getStateIds()
     {

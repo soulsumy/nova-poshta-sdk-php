@@ -15,13 +15,13 @@ class DataSerializerJSON implements SerializerInterface
         return $json;
     }
 
-    public function unserializeData($json)
+    public function unserializeData($data)
     {
-        $data = (array)json_decode($json);
+        $data = (array)json_decode($data);
         if (json_last_error() != JSON_ERROR_NONE) {
             $dataContainerResponse = new DataContainerResponse();
             $dataContainerResponse->success = false;
-            $dataContainerResponse->errors[] = array('DataSerializerJSON.DATA_IS_INVALID');
+            $dataContainerResponse->errors[] = ['DataSerializerJSON.DATA_IS_INVALID'];
 
             return $dataContainerResponse;
         }

@@ -12,6 +12,9 @@ namespace NovaPoshta\MethodParameters;
  */
 class Address_getWarehouses extends MethodParameters
 {
+    public string $CityRef;
+    public string $Page;
+
     /**
      * Устанавливает реф города
      *
