@@ -10,6 +10,9 @@ class BaseLogger
     {
         $classLogger = Config::getClassLogger();
         if($classLogger){
+            if ($dataLogger->error !== null) {
+                $classLogger->setError($dataLogger->error);
+            }
             $classLogger->setOriginalData($dataLogger->toOriginalData, $dataLogger->fromOriginalData);
             if(!empty($dataLogger->toBatchData)){
                 for($i = count($dataLogger->toBatchData); $i > 0; --$i){

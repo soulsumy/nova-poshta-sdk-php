@@ -15,4 +15,6 @@ class Logger implements InterfaceLogger
     public static function setOriginalData($toData, $fromData){}
 
     public static function setData(DataContainer $toData, DataContainerResponse $fromData){}
+
+    public static function setError(string $error){}
 }

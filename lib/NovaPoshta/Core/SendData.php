@@ -152,6 +152,8 @@ class SendData
      */
     protected function query($data)
     {
+        $this->logger->error = null;
+
         try {
             $ch = curl_init();
 
@@ -167,10 +169,15 @@ class SendData
 
             $response = curl_exec($ch);
 
+            if ($response === false) {
+                $this->logger->error = 'CURL error (' . curl_errno($ch) . '): ' . curl_error($ch);
+            }
+
             curl_close($ch);
 
             return $response;
-        } catch (\Exception) {
+        } catch (\Exception $e) {
+            $this->logger->error = 'Exception: ' . $e->getMessage();
             return false;
         }
     }

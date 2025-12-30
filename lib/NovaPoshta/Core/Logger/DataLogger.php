@@ -10,4 +10,5 @@ class DataLogger
     public $fromOriginalData = null;
     public $fromData = null;
     public $fromBatchData = [];
+    public $error = null;
 }

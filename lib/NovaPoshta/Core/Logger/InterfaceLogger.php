@@ -28,4 +28,12 @@ interface InterfaceLogger
      * @return mixed
      */
     public static function setData(DataContainer $toData, DataContainerResponse $fromData);
+
+    /**
+     * Ошибка запроса (CURL или исключение)
+     *
+     * @param string $error
+     * @return mixed
+     */
+    public static function setError(string $error);
 }
