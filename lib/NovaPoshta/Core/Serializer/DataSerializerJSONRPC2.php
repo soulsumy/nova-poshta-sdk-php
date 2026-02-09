@@ -69,7 +69,7 @@ class DataSerializerJSONRPC2 implements SerializerInterface, SerializerBatchInte
                 $dataContainerResponse->success = false;
                 $dataContainerResponse->errors[] = ['DataSerializerJSONRPC2.DATA_IS_INVALID'];
 
-                return $dataContainerResponse;
+                return [$dataContainerResponse];
             }
 
             $dataContainer = new DataContainerResponse();
